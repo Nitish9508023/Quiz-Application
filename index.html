@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Programming Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <h1>Programming Quiz Challenge</h1>
+                <p>Test your knowledge in Python, Java, and JavaScript</p>
+                <div class="quiz-info">
+                    <div class="info-item">
+                        <span class="info-number">30</span>
+                        <span class="info-label">Questions</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-number">60s</span>
+                        <span class="info-label">Per Question</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-number">3</span>
+                        <span class="info-label">Languages</span>
+                    </div>
+                </div>
+                <div class="category-selection">
+                    <h3>Choose Quiz Category:</h3>
+                    <div class="category-buttons">
+                        <button class="category-btn" data-category="all">All Languages (30 Questions)</button>
+                        <button class="category-btn" data-category="python">Python (10 Questions)</button>
+                        <button class="category-btn" data-category="java">Java (10 Questions)</button>
+                        <button class="category-btn" data-category="javascript">JavaScript (10 Questions)</button>
+                    </div>
+                </div>
+                <button id="start-quiz" class="btn-primary">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">30</span></span>
+                </div>
+                <div class="quiz-info-bar">
+                    <div class="timer">
+                        <div class="timer-circle">
+                            <span id="time-left">60</span>
+                        </div>
+                    </div>
+                    <div class="score-display">
+                        Score: <span id="current-score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-category">
+                    <span id="question-category" class="category-tag">Python</span>
+                </div>
+                <div class="question-content">
+                    <h2 id="question-text">Loading question...</h2>
+                    <div class="options-container">
+                        <button class="option-btn" data-option="0">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Option A</span>
+                        </button>
+                        <button class="option-btn" data-option="1">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Option B</span>
+                        </button>
+                        <button class="option-btn" data-option="2">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Option C</span>
+                        </button>
+                        <button class="option-btn" data-option="3">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Option D</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-controls">
+                <button id="next-question" class="btn-secondary" disabled>Next Question</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <div class="results-header">
+                    <h1>Quiz Complete!</h1>
+                    <div class="final-score">
+                        <span id="final-score">0</span><span class="score-divider">/</span><span id="total-score">30</span>
+                    </div>
+                    <div class="percentage-score">
+                        <span id="percentage">0%</span>
+                    </div>
+                </div>
+
+                <div class="performance-breakdown">
+                    <h3>Performance by Category</h3>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Python</span>
+                            <span class="stat-score" id="python-score">0/10</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Java</span>
+                            <span class="stat-score" id="java-score">0/10</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">JavaScript</span>
+                            <span class="stat-score" id="javascript-score">0/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-message">
+                    <p id="performance-text">Great job!</p>
+                </div>
+
+                <div class="results-actions">
+                    <button id="restart-quiz" class="btn-primary">Take Quiz Again</button>
+                    <button id="review-answers" class="btn-secondary">Review Answers</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="review-screen" class="screen">
+            <div class="review-content">
+                <div class="review-header">
+                    <h2>Answer Review</h2>
+                    <button id="back-to-results" class="btn-back">← Back to Results</button>
+                </div>
+                <div id="review-list" class="review-list">
+                    <!-- Review items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
